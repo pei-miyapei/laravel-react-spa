@@ -1,18 +1,24 @@
 #root .ant-layout,
-#root .ant-layout-content {
+#root .ant-layout-content,
+.App {
   min-height: 100vh;
 }
-#root .ant-layout-content {
+#root .ant-layout-content,
+.App {
   background-color: hsl(220, 13%, 18%);
+  color: white;
+  padding: 8vh 6vw 8vh 3vw;
+}
+#root label {
+  color: white;
+}
+.App {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
-}
-.App {
 }
 
 .App-logo {

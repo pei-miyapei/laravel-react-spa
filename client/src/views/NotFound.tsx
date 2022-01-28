@@ -1,7 +1,5 @@
 export const NotFound = () => (
   <div className='App'>
-    <header className='App-header'>
-      <p>Not Found</p>
-    </header>
+    <p>Not Found</p>
   </div>
 );
