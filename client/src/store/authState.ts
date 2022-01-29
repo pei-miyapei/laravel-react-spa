@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-const authStore = () => {
+const authState = () => {
   let accessToken = '';
   let refreshToken = '';
 
@@ -19,5 +19,6 @@ const authStore = () => {
   };
 };
 
-export const AuthContext = React.createContext(authStore());
-export const useAuthContext = () => useContext(AuthContext);
+export type authState = ReturnType<typeof authState>;
+const AuthContext = React.createContext(authState());
+export const useAuthContext = (): authState => useContext(AuthContext);
