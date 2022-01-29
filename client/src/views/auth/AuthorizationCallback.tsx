@@ -15,7 +15,8 @@ export const AuthorizationCallback = () => {
 
   useEffect(() => {
     pkce.exchangeForAccessToken(document.location.href).then((response) => {
-      auth.setToken(response.access_token, response.refresh_token);
+      auth.setAccessToken(response.access_token);
+      auth.setRefreshToken(response.refresh_token);
       // 認証後に遷移するページへ
       navigate('/', { replace: true });
     });

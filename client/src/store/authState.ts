@@ -7,15 +7,18 @@ const authState = () => {
   const getAccessToken = () => accessToken;
   const hasToken = () => accessToken !== '';
 
-  const setToken = (newAccessToken: string, newRefreshToken: string) => {
+  const setAccessToken = (newAccessToken: string) => {
     accessToken = newAccessToken;
+  };
+  const setRefreshToken = (newRefreshToken: string) => {
     refreshToken = newRefreshToken;
   };
 
   return {
     getAccessToken,
     hasToken,
-    setToken,
+    setAccessToken,
+    setRefreshToken,
   };
 };
 
