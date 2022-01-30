@@ -1,5 +1,5 @@
 import { Route } from 'react-router-dom';
-import { DemoEdit } from './demo/DemoEdit';
+import { DemoEdit } from './Demo/DemoEdit';
 
 export const DemosRoutes = (
   <>

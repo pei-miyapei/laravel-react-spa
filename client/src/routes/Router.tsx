@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { About } from '../views/About';
-import { AuthorizationCallback } from '../views/auth/AuthorizationCallback';
-import { DemosRoutes } from '../views/demos/DemosRoutes';
+import { AuthorizationCallback } from '../views/Auth/AuthorizationCallback';
+import { DemosRoutes } from '../views/Demos/DemosRoutes';
 import { Home } from '../views/Home';
 import { MasterPage } from '../views/MasterPage';
 import { NotFound } from '../views/NotFound';

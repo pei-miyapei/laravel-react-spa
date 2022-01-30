@@ -1,6 +1,6 @@
 import { ApiConnection1Repository } from './apiConnection1Repository';
 import type { AxiosRequestConfig } from 'axios';
-import { AuthState } from '../store/authState';
+import { AuthState } from '../store/Auth';
 
 export abstract class AuthApiConnection1Repository extends ApiConnection1Repository {
   constructor(authState: AuthState) {
