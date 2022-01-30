@@ -5,7 +5,6 @@ import { createContext, useContext, useState } from 'react';
 const loadingProps = (loading = async (process: Function) => {}) => {
   return { loading };
 };
-export type LoadingProps = ReturnType<typeof loadingProps>;
 
 // Context
 const LoadingContext = createContext(loadingProps());
