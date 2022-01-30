@@ -1,18 +1,29 @@
-#root .ant-layout,
-#root .ant-layout-content,
-.App {
+#root .ant-layout {
+  background-color: hsl(220, 13%, 18%);
   min-height: 100vh;
 }
-#root .ant-layout-content,
-.App {
-  background-color: hsl(220, 13%, 18%);
+main,
+#root main label,
+#root main form {
   color: white;
+}
+.ant-layout-content,
+.ant-spin-container {
+  height: 100%;
+}
+main {
   padding: 8vh 6vw 8vh 3vw;
 }
-#root label {
-  color: white;
+
+/* loading */
+.ant-spin-nested-loading,
+#root .ant-spin {
+  min-height: 100%;
 }
+
+/*  */
 .App {
+  height: 100%;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -20,7 +31,6 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
 }
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
