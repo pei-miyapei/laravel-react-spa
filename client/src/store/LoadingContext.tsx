@@ -2,8 +2,11 @@ import { Spin } from 'antd';
 import { createContext, useContext, useState } from 'react';
 
 // ProviderProps
-const loadingProps = (loading = async (process: Function) => {}) => {
-  return { loading };
+const loadingProps = (
+  isLoading = false,
+  loading = async (process: Function) => {}
+) => {
+  return { isLoading, loading };
 };
 
 // Context
@@ -19,7 +22,7 @@ export const LoadingProvider = ({ children }: any) => {
     setIsLoading(false);
   };
 
-  const props = loadingProps(loading);
+  const props = loadingProps(isLoading, loading);
 
   return (
     <LoadingContext.Provider value={props}>
