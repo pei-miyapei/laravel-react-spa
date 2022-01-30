@@ -5,17 +5,18 @@ export class AuthTokens {
 }
 
 // ProviderProps
-export class AuthProps {
-  constructor(
-    public tokens = new AuthTokens(),
-    public handleSetTokens = (value: AuthTokens) => {}
-  ) {}
+const authProps = (
+  tokens = new AuthTokens(),
+  handleSetTokens = (value: AuthTokens) => {}
+) => {
+  const hasToken = () => tokens.accessToken !== '';
 
-  public hasToken = () => this.tokens.accessToken !== '';
-}
+  return { tokens, handleSetTokens, hasToken };
+};
+export type AuthProps = ReturnType<typeof authProps>;
 
 // Context
-let AuthContext = createContext(new AuthProps());
+let AuthContext = createContext(authProps());
 
 // Provider
 export const AuthProvider = ({ children }: any) => {
@@ -30,11 +31,9 @@ export const AuthProvider = ({ children }: any) => {
   const handleSetTokens = (value: AuthTokens) => {
     setTokens({ ...tokens, ...value });
   };
-  const authProps = new AuthProps(tokens, handleSetTokens);
+  const props = authProps(tokens, handleSetTokens);
 
-  return (
-    <AuthContext.Provider value={authProps}>{children}</AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={props}>{children}</AuthContext.Provider>;
 };
 
 // Consumer

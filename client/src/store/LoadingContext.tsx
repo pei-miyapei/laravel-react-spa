@@ -2,12 +2,13 @@ import { Spin } from 'antd';
 import { createContext, useContext, useState } from 'react';
 
 // ProviderProps
-export class LoadingProps {
-  constructor(public loading = async (process: Function) => {}) {}
-}
+const loadingProps = (loading = async (process: Function) => {}) => {
+  return { loading };
+};
+export type LoadingProps = ReturnType<typeof loadingProps>;
 
 // Context
-const LoadingContext = createContext(new LoadingProps());
+const LoadingContext = createContext(loadingProps());
 
 // Provider
 export const LoadingProvider = ({ children }: any) => {
@@ -19,10 +20,10 @@ export const LoadingProvider = ({ children }: any) => {
     setIsLoading(false);
   };
 
-  const loadingProps = new LoadingProps(loading);
+  const props = loadingProps(loading);
 
   return (
-    <LoadingContext.Provider value={loadingProps}>
+    <LoadingContext.Provider value={props}>
       <Spin spinning={isLoading} size='large'>
         {children}
       </Spin>
