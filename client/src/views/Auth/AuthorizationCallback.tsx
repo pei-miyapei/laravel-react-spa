@@ -1,7 +1,7 @@
 import PKCE from 'js-pkce';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuthContext } from '../../store/AuthStore';
+import { AuthTokens, useAuthContext } from '../../store/AuthContext';
 
 export const AuthorizationCallback = () => {
   const pkce = new PKCE({
@@ -9,15 +9,14 @@ export const AuthorizationCallback = () => {
     redirect_uri: location.origin + '/auth/callback',
     token_endpoint: 'http://localhost/server/oauth/token',
   });
-  const { handleSetAuth } = useAuthContext();
+  const { handleSetTokens } = useAuthContext();
   const navigate = useNavigate();
 
   useEffect(() => {
     pkce.exchangeForAccessToken(document.location.href).then((response) => {
-      handleSetAuth({
-        accessToken: response.access_token,
-        refreshToken: response.refresh_token,
-      });
+      handleSetTokens(
+        new AuthTokens(response.access_token, response.refresh_token)
+      );
       // 認証後に遷移するページへ
       navigate('/', { replace: true });
     });

@@ -3,7 +3,7 @@ import Layout, { Content } from 'antd/lib/layout/layout';
 import Sider from 'antd/lib/layout/Sider';
 import { Link, Outlet } from 'react-router-dom';
 import { AuthGuard } from '../components/Auth/AuthGuard';
-import { LoadingProvider } from '../store/LoadingStore';
+import { LoadingProvider } from '../store/LoadingContext';
 
 export const MasterPage = () => {
   return (

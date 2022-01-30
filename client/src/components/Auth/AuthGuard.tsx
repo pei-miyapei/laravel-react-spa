@@ -1,5 +1,5 @@
 import PKCE from 'js-pkce';
-import { useAuthContext } from '../../store/AuthStore';
+import { useAuthContext } from '../../store/AuthContext';
 
 export const AuthGuard = ({ children }: any) => {
   const { hasToken } = useAuthContext();
