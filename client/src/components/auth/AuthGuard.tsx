@@ -2,9 +2,9 @@ import PKCE from 'js-pkce';
 import { useAuthContext } from '../../store/authState';
 
 export const AuthGuard = ({ children }: any) => {
-  const auth = useAuthContext();
+  const { hasToken } = useAuthContext();
 
-  if (!auth.hasToken()) {
+  if (!hasToken()) {
     const pkce = new PKCE({
       client_id: '1',
       redirect_uri: location.origin + '/auth/callback',

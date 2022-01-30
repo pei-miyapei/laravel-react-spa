@@ -10,17 +10,19 @@ export const AuthorizationCallback = () => {
     redirect_uri: location.origin + '/auth/callback',
     token_endpoint: 'http://localhost/server/oauth/token',
   });
-  const auth = useAuthContext();
+  const { handleSetAuth } = useAuthContext();
   const navigate = useNavigate();
 
   useEffect(() => {
     pkce.exchangeForAccessToken(document.location.href).then((response) => {
-      auth.setAccessToken(response.access_token);
-      auth.setRefreshToken(response.refresh_token);
+      handleSetAuth({
+        accessToken: response.access_token,
+        refreshToken: response.refresh_token,
+      });
       // 認証後に遷移するページへ
       navigate('/', { replace: true });
     });
-  });
+  }, []);
 
   return <></>;
 };
