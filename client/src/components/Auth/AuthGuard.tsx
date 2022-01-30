@@ -12,8 +12,8 @@ export const AuthGuard = ({ children }: any) => {
       requested_scopes: '*',
     });
     location.replace(pkce.authorizeUrl());
+    return <></>;
   } else {
     return <>{children}</>;
   }
-  return <></>;
 };

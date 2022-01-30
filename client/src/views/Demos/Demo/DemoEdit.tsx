@@ -15,8 +15,8 @@ export const DemoEdit = () => {
       <Form.Item
         label='名称'
         name='name'
-        initialValue={demo.name}
         rules={[{ required: true, message: '必須項目です' }]}
+        initialValue={demo.name}
       >
         <Input />
       </Form.Item>
@@ -26,7 +26,6 @@ export const DemoEdit = () => {
           保存
         </Button>
       </Form.Item>
-      {demo.id}
     </Form>
   );
 };

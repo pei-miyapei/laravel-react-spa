@@ -1,13 +1,13 @@
 import { createContext, useContext, useState } from 'react';
 
-export class AuthTokens {
+class AuthTokens {
   constructor(public accessToken = '', public refreshToken = '') {}
 }
 
 // ProviderProps
 const authProps = (
   tokens = new AuthTokens(),
-  handleSetTokens = (value: AuthTokens) => {}
+  handleSetTokens = (accessToken = '', refreshToken = '') => {}
 ) => {
   const hasToken = () => tokens.accessToken !== '';
 
@@ -28,8 +28,8 @@ export const AuthProvider = ({ children }: any) => {
       　（例えば意図的に空にした場合でも、画面が表示され続けてしまう）
   */
   const [tokens, setTokens] = useState(new AuthTokens());
-  const handleSetTokens = (value: AuthTokens) => {
-    setTokens({ ...tokens, ...value });
+  const handleSetTokens = (accessToken = '', refreshToken = '') => {
+    setTokens({ ...tokens, ...new AuthTokens(accessToken, refreshToken) });
   };
   const props = authProps(tokens, handleSetTokens);
 
