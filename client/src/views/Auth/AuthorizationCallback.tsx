@@ -1,7 +1,7 @@
 import PKCE from 'js-pkce';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuthContext } from '../../store/Auth';
+import { useAuthContext } from '../../store/AuthStore';
 
 export const AuthorizationCallback = () => {
   const pkce = new PKCE({

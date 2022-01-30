@@ -1,6 +1,6 @@
 import './App.css';
 import { Router } from './routes/Router';
-import { AuthProvider } from './store/authState';
+import { AuthProvider } from './store/AuthStore';
 
 function App() {
   return (
