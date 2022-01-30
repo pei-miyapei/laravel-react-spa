@@ -30,4 +30,5 @@ export const AuthProvider = ({ children }: any) => {
   );
 };
 
-export const useAuthContext = (): AuthState => useContext(AuthContext); // Consumer
+// Consumer
+export const useAuthContext = (): AuthState => useContext(AuthContext);
