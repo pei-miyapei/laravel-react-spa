@@ -36,10 +36,6 @@ export const demoEditProps = () => {
     const newDemo = Object.assign(demo, value);
 
     loading(async () => {
-      const _sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
-      await _sleep(2000);
-
       const response = await demoRepository.upsert(newDemo);
       refreshDemo({ ...newDemo, id: response.data.id });
       message.success('保存しました');

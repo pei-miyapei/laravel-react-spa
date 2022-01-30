@@ -9,7 +9,7 @@ export const MasterPage = () => {
   return (
     <AuthGuard>
       <Layout>
-        <Sider breakpoint='lg' collapsedWidth='0'>
+        <Sider>
           <Menu theme='dark'>
             <Menu.Item key='1'>
               <Link to='/'>Home</Link>
